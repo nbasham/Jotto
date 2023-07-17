@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2066E46B2A65B2F9001584AE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2066E46A2A65B2F9001584AE /* Extensions.swift */; };
+		2066E46D2A65BBE2001584AE /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2066E46C2A65BBE2001584AE /* OptionsView.swift */; };
+		2066E46F2A65BEEA001584AE /* 6_letter_words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2066E46E2A65BEEA001584AE /* 6_letter_words.txt */; };
+		2066E4712A65BF12001584AE /* 4_letter_words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2066E4702A65BF12001584AE /* 4_letter_words.txt */; };
 		2085B6CB2A6474330091D1F7 /* JottoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2085B6CA2A6474330091D1F7 /* JottoApp.swift */; };
 		2085B6CD2A6474330091D1F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2085B6CC2A6474330091D1F7 /* ContentView.swift */; };
 		2085B6CF2A6474360091D1F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2085B6CE2A6474360091D1F7 /* Assets.xcassets */; };
@@ -21,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2066E46A2A65B2F9001584AE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2066E46C2A65BBE2001584AE /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
+		2066E46E2A65BEEA001584AE /* 6_letter_words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 6_letter_words.txt; sourceTree = "<group>"; };
+		2066E4702A65BF12001584AE /* 4_letter_words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 4_letter_words.txt; sourceTree = "<group>"; };
 		2085B6C72A6474330091D1F7 /* Jotto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jotto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2085B6CA2A6474330091D1F7 /* JottoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JottoApp.swift; sourceTree = "<group>"; };
 		2085B6CC2A6474330091D1F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,12 +76,16 @@
 				2085B6CA2A6474330091D1F7 /* JottoApp.swift */,
 				2085B6CC2A6474330091D1F7 /* ContentView.swift */,
 				2085B6E42A64DD630091D1F7 /* Dictionary.swift */,
+				2066E46A2A65B2F9001584AE /* Extensions.swift */,
 				2085B6DC2A64AA370091D1F7 /* GameState.swift */,
+				2066E4702A65BF12001584AE /* 4_letter_words.txt */,
 				2085B6E22A64DD380091D1F7 /* 5_letter_words.txt */,
+				2066E46E2A65BEEA001584AE /* 6_letter_words.txt */,
 				2085B6DE2A64AF6D0091D1F7 /* GuessRowView.swift */,
 				2085B6E02A64B0EB0091D1F7 /* InputView.swift */,
 				2085B6D82A6474450091D1F7 /* KeyboardView.swift */,
 				2085B6DA2A6476090091D1F7 /* KeyView.swift */,
+				2066E46C2A65BBE2001584AE /* OptionsView.swift */,
 				2085B6CE2A6474360091D1F7 /* Assets.xcassets */,
 				2085B6D02A6474360091D1F7 /* Preview Content */,
 			);
@@ -148,7 +160,9 @@
 			files = (
 				2085B6D22A6474360091D1F7 /* Preview Assets.xcassets in Resources */,
 				2085B6E32A64DD380091D1F7 /* 5_letter_words.txt in Resources */,
+				2066E4712A65BF12001584AE /* 4_letter_words.txt in Resources */,
 				2085B6CF2A6474360091D1F7 /* Assets.xcassets in Resources */,
+				2066E46F2A65BEEA001584AE /* 6_letter_words.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +174,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2085B6DB2A6476090091D1F7 /* KeyView.swift in Sources */,
+				2066E46B2A65B2F9001584AE /* Extensions.swift in Sources */,
 				2085B6E52A64DD630091D1F7 /* Dictionary.swift in Sources */,
+				2066E46D2A65BBE2001584AE /* OptionsView.swift in Sources */,
 				2085B6E12A64B0EB0091D1F7 /* InputView.swift in Sources */,
 				2085B6D92A6474450091D1F7 /* KeyboardView.swift in Sources */,
 				2085B6DD2A64AA370091D1F7 /* GameState.swift in Sources */,

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct GuessRowView: View {
+    let wordLen: Int
     let states: [TileState]
 
     func color(index: Int) -> Color {
@@ -34,10 +35,11 @@ struct GuessRowView: View {
 
     var body: some View {
         HStack {
-            ForEach((0..<5), id: \.self) { index in
+            ForEach((0..<wordLen), id: \.self) { index in
                 RoundedRectangle(cornerRadius: 8)
                     .foregroundColor(color(index: index))
                     .aspectRatio(1, contentMode: .fit)
+                    .frame(maxHeight: 64)
                     .overlay (
                         key(index: index)
                     )
@@ -47,5 +49,5 @@ struct GuessRowView: View {
 }
 
 #Preview {
-    GuessRowView(states: [.unused, .unused, .unused, .unused, .unused])
+    GuessRowView(wordLen: 5, states: [.unused, .unused, .unused, .unused, .unused])
 }

@@ -2,6 +2,14 @@ import SwiftUI
 
 struct ContentView: View {
     @State var gameState = GameState()
+    @State var isShowingOptions = false
+
+    var rowsToShow: Int {
+        if gameState.gameOver {
+            return gameState.row
+        }
+        return gameState.maxNumGuesses
+    }
 
     var body: some View {
         NavigationStack {
@@ -9,19 +17,36 @@ struct ContentView: View {
                 Color.yellow.opacity(0.2)
                     .ignoresSafeArea(.all)
                 VStack() {
-                    ForEach(0..<gameState.maxNumGuesses, id: \.self) { row in
-                        GuessRowView(states: gameState.tileStates[row])
+                    ForEach(0..<rowsToShow, id: \.self) { row in
+                        GuessRowView(wordLen: gameState.wordLength, states: gameState.tileStates[row])
                     }
-                    InputView(state: gameState)
-                        .padding()
-                    KeyboardView(states: gameState.keyStates, action: gameState.letterTap)
-                        .padding(.horizontal)
+                    if gameState.gameOver {
+                        Button("Options") {
+                            isShowingOptions = true
+                        }
+                        .buttonStyle(.bordered)
+                       Button {
+                            gameState = GameState()
+                        } label: {
+                            Text("Play again")
+                        }
+                        .buttonStyle(.borderedProminent)
+                    } else {
+                        InputView(state: gameState)
+                            .padding()
+                        KeyboardView(states: gameState.keyStates, action: gameState.letterTap)
+                            .padding(.horizontal)
+                    }
                 }
                 .padding()
             }
-            .navigationTitle("Jotto!")
+            .navigationTitle(gameState.message ?? "Jotto!")
             .navigationBarTitleDisplayMode(.inline)
-            .sheet(isPresented: $gameState.showAlert) { Text(gameState.message ?? "WFT")
+            .sheet(isPresented: $isShowingOptions) {
+                NavigationStack {
+                    OptionsView()
+                }
+                .presentationDetents([.medium, .fraction(0.32)])
             }
         }
     }

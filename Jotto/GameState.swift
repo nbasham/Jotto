@@ -9,7 +9,7 @@ enum TileState {
 }
 
 @Observable class GameState {
-    let answer = "FRIED"
+    let answer: String
     let maxNumGuesses = 6
     var keyStates: [String: KeyState] = [:]
     var tileStates: [[TileState]] = []
@@ -18,7 +18,7 @@ enum TileState {
     var wordLength: Int { answer.count }
     var guessIsValid = false
     var guess = ""
-    var showAlert = false
+    var gameOver = false
     var message: String?
 
     init() {
@@ -26,6 +26,8 @@ enum TileState {
             "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
         ]
 
+        answer = Dictionary.random.uppercased()
+        print(answer)
         alphabet.forEach {
             keyStates[$0.uppercased()] = .unused
         }
@@ -57,25 +59,26 @@ enum TileState {
             won()
         } else if row > maxNumGuesses {
             lost()
+        } else {
+            guess = ""
+            tileStates[row][rowIndex] = .target
         }
-        guess = ""
-        tileStates[row][rowIndex] = .target
     }
 
     func won() {
-        showAlert = true
+        gameOver = true
         message = "You won!"
     }
 
     func lost() {
-        showAlert = true
+        gameOver = true
         message = "You lost!"
     }
 
     func deleteTap() {
-        guess.removeLast()
-        tileStates[row][rowIndex] = .target
+        _ = guess.popLast()
         rowIndex = max(0, rowIndex - 1)
+        tileStates[row][rowIndex] = .target
     }
 
     func letterTap(_ letter: String) {
