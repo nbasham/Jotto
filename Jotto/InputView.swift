@@ -3,6 +3,14 @@ import SwiftUI
 struct InputView: View {
     let state: GameState
 
+    private func color(index: Int) -> Color {
+        let value = state.foundLetters[index]
+        if value.isEmpty {
+            return .white
+        }
+        return .green
+    }
+
     var body: some View {
         HStack {
             Button {
@@ -17,8 +25,12 @@ struct InputView: View {
             Spacer()
             ForEach((0..<state.wordLength), id: \.self) { index in
                 RoundedRectangle(cornerRadius: 8)
-                    .foregroundColor(.white)
+                    .foregroundColor(color(index: index))
                     .aspectRatio(1, contentMode: .fit)
+                    .overlay (
+                        Text(state.foundLetters[index])
+                            .foregroundColor(.white)
+                    )
             }
         }
     }

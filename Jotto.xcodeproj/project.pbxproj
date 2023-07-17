@@ -73,19 +73,19 @@
 		2085B6C92A6474330091D1F7 /* Jotto */ = {
 			isa = PBXGroup;
 			children = (
-				2085B6CA2A6474330091D1F7 /* JottoApp.swift */,
 				2085B6CC2A6474330091D1F7 /* ContentView.swift */,
 				2085B6E42A64DD630091D1F7 /* Dictionary.swift */,
 				2066E46A2A65B2F9001584AE /* Extensions.swift */,
 				2085B6DC2A64AA370091D1F7 /* GameState.swift */,
-				2066E4702A65BF12001584AE /* 4_letter_words.txt */,
-				2085B6E22A64DD380091D1F7 /* 5_letter_words.txt */,
-				2066E46E2A65BEEA001584AE /* 6_letter_words.txt */,
 				2085B6DE2A64AF6D0091D1F7 /* GuessRowView.swift */,
 				2085B6E02A64B0EB0091D1F7 /* InputView.swift */,
+				2085B6CA2A6474330091D1F7 /* JottoApp.swift */,
 				2085B6D82A6474450091D1F7 /* KeyboardView.swift */,
 				2085B6DA2A6476090091D1F7 /* KeyView.swift */,
 				2066E46C2A65BBE2001584AE /* OptionsView.swift */,
+				2066E4702A65BF12001584AE /* 4_letter_words.txt */,
+				2085B6E22A64DD380091D1F7 /* 5_letter_words.txt */,
+				2066E46E2A65BEEA001584AE /* 6_letter_words.txt */,
 				2085B6CE2A6474360091D1F7 /* Assets.xcassets */,
 				2085B6D02A6474360091D1F7 /* Preview Content */,
 			);

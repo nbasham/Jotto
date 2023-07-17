@@ -2,10 +2,28 @@ import SwiftUI
 
 enum KeyState {
     case unused, used, found, foundInPosition
+
+    static func initialize() -> [String: KeyState] {
+        let alphabet: [String] = [
+            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+        ]
+        var keyStates: [String: KeyState] = [:]
+        alphabet.forEach {
+            keyStates[$0.uppercased()] = .unused
+        }
+        return keyStates
+    }
 }
 
 enum TileState {
     case target, active(String), unused, used(String, KeyState)
+
+    static func initialize(cols: Int, rows: Int) -> [[TileState]] {
+        let row: [TileState] = Array(repeating: .unused, count: cols)
+        var tileStates = Array(repeating: row, count: rows)
+        tileStates[0][0] = .target
+        return tileStates
+    }
 }
 
 @Observable class GameState {
@@ -13,6 +31,7 @@ enum TileState {
     let maxNumGuesses = 6
     var keyStates: [String: KeyState] = [:]
     var tileStates: [[TileState]] = []
+    var foundLetters: [String] = []
     var row = 0
     var rowIndex = 0
     var wordLength: Int { answer.count }
@@ -22,18 +41,11 @@ enum TileState {
     var message: String?
 
     init() {
-        let alphabet: [String] = [
-            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
-        ]
-
         answer = Dictionary.random.uppercased()
         print(answer)
-        alphabet.forEach {
-            keyStates[$0.uppercased()] = .unused
-        }
-        let row: [TileState] = Array(repeating: .unused, count: answer.count)
-        tileStates = Array(repeating: row, count: maxNumGuesses)
-        tileStates[0][0] = .target
+        keyStates = KeyState.initialize()
+        tileStates = TileState.initialize(cols: answer.count, rows: maxNumGuesses)
+        foundLetters = Array(repeating: "", count: wordLength)
     }
 
     func handleGuess() {
@@ -45,6 +57,7 @@ enum TileState {
             if foundInPosition {
                 keyStates[letter] = .foundInPosition
                 tileStates[row][i] = .used(letter, .foundInPosition)
+                foundLetters[i] = letter
             } else if found {
                 keyStates[letter] = .found
                 tileStates[row][i] = .used(letter, .found)
@@ -53,13 +66,13 @@ enum TileState {
                 tileStates[row][i] = .used(letter, .used)
             }
         }
-        rowIndex = 0
         row += 1
         if guess == answer {
             won()
-        } else if row > maxNumGuesses {
+        } else if row >= maxNumGuesses-1 {
             lost()
         } else {
+            rowIndex = 0
             guess = ""
             tileStates[row][rowIndex] = .target
         }
