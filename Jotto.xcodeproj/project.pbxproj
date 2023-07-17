@@ -11,6 +11,13 @@
 		2085B6CD2A6474330091D1F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2085B6CC2A6474330091D1F7 /* ContentView.swift */; };
 		2085B6CF2A6474360091D1F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2085B6CE2A6474360091D1F7 /* Assets.xcassets */; };
 		2085B6D22A6474360091D1F7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2085B6D12A6474360091D1F7 /* Preview Assets.xcassets */; };
+		2085B6D92A6474450091D1F7 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2085B6D82A6474450091D1F7 /* KeyboardView.swift */; };
+		2085B6DB2A6476090091D1F7 /* KeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2085B6DA2A6476090091D1F7 /* KeyView.swift */; };
+		2085B6DD2A64AA370091D1F7 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2085B6DC2A64AA370091D1F7 /* GameState.swift */; };
+		2085B6DF2A64AF6D0091D1F7 /* GuessRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2085B6DE2A64AF6D0091D1F7 /* GuessRowView.swift */; };
+		2085B6E12A64B0EB0091D1F7 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2085B6E02A64B0EB0091D1F7 /* InputView.swift */; };
+		2085B6E32A64DD380091D1F7 /* 5_letter_words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2085B6E22A64DD380091D1F7 /* 5_letter_words.txt */; };
+		2085B6E52A64DD630091D1F7 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2085B6E42A64DD630091D1F7 /* Dictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +26,13 @@
 		2085B6CC2A6474330091D1F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2085B6CE2A6474360091D1F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2085B6D12A6474360091D1F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2085B6D82A6474450091D1F7 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		2085B6DA2A6476090091D1F7 /* KeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyView.swift; sourceTree = "<group>"; };
+		2085B6DC2A64AA370091D1F7 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		2085B6DE2A64AF6D0091D1F7 /* GuessRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessRowView.swift; sourceTree = "<group>"; };
+		2085B6E02A64B0EB0091D1F7 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		2085B6E22A64DD380091D1F7 /* 5_letter_words.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 5_letter_words.txt; sourceTree = "<group>"; };
+		2085B6E42A64DD630091D1F7 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +67,13 @@
 			children = (
 				2085B6CA2A6474330091D1F7 /* JottoApp.swift */,
 				2085B6CC2A6474330091D1F7 /* ContentView.swift */,
+				2085B6E42A64DD630091D1F7 /* Dictionary.swift */,
+				2085B6DC2A64AA370091D1F7 /* GameState.swift */,
+				2085B6E22A64DD380091D1F7 /* 5_letter_words.txt */,
+				2085B6DE2A64AF6D0091D1F7 /* GuessRowView.swift */,
+				2085B6E02A64B0EB0091D1F7 /* InputView.swift */,
+				2085B6D82A6474450091D1F7 /* KeyboardView.swift */,
+				2085B6DA2A6476090091D1F7 /* KeyView.swift */,
 				2085B6CE2A6474360091D1F7 /* Assets.xcassets */,
 				2085B6D02A6474360091D1F7 /* Preview Content */,
 			);
@@ -126,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2085B6D22A6474360091D1F7 /* Preview Assets.xcassets in Resources */,
+				2085B6E32A64DD380091D1F7 /* 5_letter_words.txt in Resources */,
 				2085B6CF2A6474360091D1F7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +159,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2085B6DB2A6476090091D1F7 /* KeyView.swift in Sources */,
+				2085B6E52A64DD630091D1F7 /* Dictionary.swift in Sources */,
+				2085B6E12A64B0EB0091D1F7 /* InputView.swift in Sources */,
+				2085B6D92A6474450091D1F7 /* KeyboardView.swift in Sources */,
+				2085B6DD2A64AA370091D1F7 /* GameState.swift in Sources */,
 				2085B6CD2A6474330091D1F7 /* ContentView.swift in Sources */,
 				2085B6CB2A6474330091D1F7 /* JottoApp.swift in Sources */,
+				2085B6DF2A64AF6D0091D1F7 /* GuessRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

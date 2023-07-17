@@ -1,18 +1,29 @@
-//
-//  InputView.swift
-//  Jotto
-//
-//  Created by Norman Basham on 7/16/23.
-//
-
 import SwiftUI
 
 struct InputView: View {
+    let state: GameState
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Button {
+                state.handleGuess()
+            } label: {
+                Text("Guess")
+                    .fixedSize()
+            }
+            .buttonStyle(.bordered)
+            .disabled(!state.guessIsValid)
+            .padding(.trailing)
+            Spacer()
+            ForEach((0..<state.wordLength), id: \.self) { index in
+                RoundedRectangle(cornerRadius: 8)
+                    .foregroundColor(.white)
+                    .aspectRatio(1, contentMode: .fit)
+            }
+        }
     }
 }
 
 #Preview {
-    InputView()
+    InputView(state: GameState())
 }
