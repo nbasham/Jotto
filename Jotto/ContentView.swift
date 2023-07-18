@@ -18,7 +18,7 @@ struct ContentView: View {
                     .ignoresSafeArea(.all)
                 VStack() {
                     ForEach(0..<rowsToShow, id: \.self) { row in
-                        GuessRowView(wordLen: gameState.wordLength, states: gameState.tileStates[row])
+                        GuessTileRowView(wordLen: gameState.wordLength, states: gameState.tileStates[row])
                     }
                     if gameState.gameOver {
                         Button("Options") {

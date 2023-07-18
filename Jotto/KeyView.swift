@@ -1,5 +1,20 @@
 import SwiftUI
 
+enum KeyState {
+    case unused, used, found, foundInPosition
+
+    static func initialize() -> [String: KeyState] {
+        let alphabet: [String] = [
+            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+        ]
+        var keyStates: [String: KeyState] = [:]
+        alphabet.forEach {
+            keyStates[$0.uppercased()] = .unused
+        }
+        return keyStates
+    }
+}
+
 struct KeyView: View {
     let letter: String
     var state: KeyState
