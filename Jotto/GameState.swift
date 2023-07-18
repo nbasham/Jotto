@@ -1,6 +1,7 @@
 import SwiftUI
 
 @Observable class GameState {
+    let dictionary: Dictionary
     let answer: String
     let maxNumGuesses = 6
     var keyStates: [String: KeyState] = [:]
@@ -15,7 +16,11 @@ import SwiftUI
     var message: String?
 
     init() {
-        answer = Dictionary.random.uppercased()
+        let countStr = UserDefaults.standard.value(forKey: "letterCount") as? String ?? "5"
+        let count = Int(countStr) ?? 5
+        dictionary = Dictionary.load(count: count)
+        let allowRepeats = UserDefaults.standard.value(forKey: "allowRepeats") as? Bool ?? false
+        answer = dictionary.random(allowRepeats: allowRepeats).uppercased()
         print(answer)
         keyStates = KeyState.initialize()
         tileStates = GuessTileState.initialize(cols: answer.count, rows: maxNumGuesses)
@@ -85,7 +90,7 @@ import SwiftUI
 
     private func isValid() -> Bool {
         guard rowIndex == wordLength else { return false }
-        guard Dictionary.contains(guess.lowercased()) else { return false }
+        guard dictionary.contains(guess.lowercased()) else { return false }
         return true
     }
 }
