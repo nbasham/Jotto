@@ -6,6 +6,11 @@ extension String {
     }
 }
 
+extension UIDevice {
+    static let isPad = UIDevice.current.userInterfaceIdiom == .pad
+    static let isPhone = UIDevice.current.userInterfaceIdiom == .phone
+}
+
 extension View {
     func snapshot() -> Image {
         Image(uiImage: snapshot())

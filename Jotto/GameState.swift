@@ -33,7 +33,10 @@ import SwiftUI
                 tileStates[row][i] = .pastFoundInPlace(letter)
                 foundLetters[i] = letter
             } else if found {
-                keyStates[letter] = .found
+                //  don't change state if it's more specific
+                if keyStates[letter] != .foundInPosition {
+                    keyStates[letter] = .found
+                }
                 tileStates[row][i] = .pastFound(letter)
             } else {
                 keyStates[letter] = .used
@@ -73,6 +76,7 @@ import SwiftUI
 
     func letterTap(_ letter: String) {
         guard letter != "DEL" else { deleteTap(); return }
+        guard rowIndex != wordLength else { return }
         guess.append(letter)
         tileStates[row][rowIndex] = .current(letter)
         rowIndex = min(wordLength, rowIndex + 1)

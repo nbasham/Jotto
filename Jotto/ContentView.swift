@@ -36,6 +36,7 @@ struct ContentView: View {
                             .padding()
                         KeyboardView(states: gameState.keyStates, action: gameState.letterTap)
                             .padding(.horizontal)
+                            .frame(height: UIDevice.isPhone ? 156 : 256)
                     }
                 }
                 .padding()

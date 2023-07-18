@@ -31,7 +31,7 @@ struct KeyboardView: View {
                     }
                 }
             }
-            .frame(height: 44)
+            .frame(height: UIDevice.isPhone ? 44 : 88)
             .frame(width: width)
     }
 

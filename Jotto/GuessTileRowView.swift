@@ -20,7 +20,7 @@ struct GuessTileView: View {
         RoundedRectangle(cornerRadius: 8)
             .foregroundColor(state.color)
             .aspectRatio(1, contentMode: .fit)
-            .frame(maxHeight: 64)
+            .frame(maxHeight: UIDevice.isPhone ? 64 : 108)
             .overlay (
                 Text(state.letter)
                     .foregroundColor(state.textColor)
