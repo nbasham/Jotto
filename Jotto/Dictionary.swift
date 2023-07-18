@@ -3,7 +3,7 @@ import Foundation
 enum Dictionary {
     private static func load() -> Set<String> {
         let timer = CodeTimer()
-        let count = UserDefaults.standard.value(forKey: "letter_count") ?? "5"
+        let count = UserDefaults.standard.value(forKey: "letterCount") ?? "5"
         guard let url = Bundle.main.url(forResource: "\(count)_letter_words", withExtension: "txt") else {
             fatalError("Cannot find dictionary.txt")
         }
@@ -22,7 +22,7 @@ enum Dictionary {
     }
 
     static var random: String {
-        let allowRepeats = UserDefaults.standard.value(forKey: "allow_repeats") as? Bool ?? false
+        let allowRepeats = UserDefaults.standard.value(forKey: "allowRepeats") as? Bool ?? false
         let words = Dictionary.load()
         var candidate = words.randomElement()!
         if allowRepeats { return candidate }
