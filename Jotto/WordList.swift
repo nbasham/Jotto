@@ -1,13 +1,13 @@
 import Foundation
 
-class Dictionary {
-    private var words: Set<String> = []
+class WordList {
+    internal var words: Set<String> = []
 
     private init(words: Set<String>) {
         self.words = words
     }
 
-    static func load(count: Int) -> Dictionary {
+    static func load(count: Int) -> WordList {
         let timer = CodeTimer()
         guard let url = Bundle.main.url(forResource: "\(count)_letter_words", withExtension: "txt") else {
             fatalError("Cannot find dictionary.txt")
@@ -17,9 +17,11 @@ class Dictionary {
             fatalError("Couldn't load dictionary.txt")
         }
 
-        let words = Set(contents.components(separatedBy: .newlines))
+        var wordsArray = contents.components(separatedBy: .newlines)
+        _ = wordsArray.popLast() // Xcode always adds newline to end of file
+        let words = Set(wordsArray)
         timer.log("Time to load words:")
-        return Dictionary(words: words)
+        return WordList(words: words)
     }
 
     func contains(_ word: String) -> Bool {
@@ -36,7 +38,7 @@ class Dictionary {
             candidate = words.randomElement()!
             nonDupCount = Set(Array(candidate)).count
         }
-        print("Choosing \(candidate)")
+//        print("Choosing \(candidate)")
         return candidate
     }
 }
